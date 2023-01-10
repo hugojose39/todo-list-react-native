@@ -35,11 +35,11 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    buttonIsCheck: {
+    buttonTaskDone: {
         color: '#5E60CE',
         fontSize: 24,
     },
-    buttonNotCheck: {
+    buttonNotTaskDone: {
         color: '#1E6F9F',
         fontSize: 24,
     },
