@@ -9,7 +9,11 @@ export function Home(): JSX.Element {
     const [taskDescription, setTaskName] = useState('');
 
     function handleTaskAdd() {
-        if (! taskDescription) {
+        if (tasks.includes(taskDescription)) {
+            return Alert.alert('Tarefa já existe', 'Já existe uma tarefa na lista com essa descrição!')
+        }
+
+        if (!taskDescription) {
             return Alert.alert('Tarefa inválida!')
         }
 
@@ -17,12 +21,12 @@ export function Home(): JSX.Element {
         setTaskName('');
     }
 
-    function handleTaskRemove(name: string) {
-        Alert.alert('Remover', `Remover a tarefa ${name}?`, [
+    function handleTaskRemove(description: string) {
+        Alert.alert('Remover', `Remover a tarefa ${description} ?`, [
             {
                 text: 'Sim',
 
-                onPress: () => setTasks(prevState => prevState.filter(participant => participant !== name)),
+                onPress: () => setTasks(prevState => prevState.filter(task => task !== description)),
             },
             {
                 text: 'Não',
@@ -58,7 +62,7 @@ export function Home(): JSX.Element {
                     Criadas:
                 </Text>
                 <Text style={styles.completed}>
-                    Concluídas: 
+                    Concluídas:
                 </Text>
             </View>
 
@@ -68,13 +72,14 @@ export function Home(): JSX.Element {
                 renderItem={({ item }) => (
                     <Task
                         key={item}
-                        name={item}
+                        description={item}
                         onRemove={() => handleTaskRemove(item)}
                     />
                 )}
                 showsVerticalScrollIndicator={false}
                 ListEmptyComponent={() => (
                     <View style={styles.container}>
+                        <Icon style={styles.listEmptyIcon} name="clipboard-list-outline" />
                         <Text style={styles.listEmptyTitle}>
                             Você ainda não tem tarefas cadastradas
                         </Text>

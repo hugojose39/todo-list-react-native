@@ -9,11 +9,13 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 10,
     },
-    name: {
-        flex:1,
+    description: {
+        flex: 1,
         color: '#FFF',
         fontSize: 16,
-        marginLeft: 16,
+        marginLeft: 10,
+        marginTop: 10,
+        marginBottom: 10,
     },
     buttonText: {
         color: '#FFF',
@@ -23,7 +25,6 @@ export const styles = StyleSheet.create({
         width: 56,
         height: 56,
         borderRadius: 5,
-        backgroundColor: '#E23C44',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -36,10 +37,10 @@ export const styles = StyleSheet.create({
     },
     buttonIsCheck: {
         color: '#5E60CE',
-        fontSize: 30,
+        fontSize: 24,
     },
     buttonNotCheck: {
         color: '#1E6F9F',
-        fontSize: 30,
+        fontSize: 24,
     },
 });

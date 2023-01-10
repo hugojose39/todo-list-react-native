@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 type Props = {
-    name: string;
+    description: string;
     onRemove: () => void;
 }
 
-export function Task({ name, onRemove }: Props) {
+export function Task({ description, onRemove }: Props) {
 
     const [estado, setEstado] = useState(false);
 
@@ -25,8 +25,8 @@ export function Task({ name, onRemove }: Props) {
                     style={estado ? styles.buttonIsCheck : styles.buttonNotCheck}
                     name={estado ? "check-circle" : "checkbox-blank-circle-outline"} />
             </TouchableOpacity>
-            <Text style={styles.name}>
-                {name}
+            <Text style={styles.description}>
+                {description}
             </Text>
             <TouchableOpacity
                 style={styles.button}

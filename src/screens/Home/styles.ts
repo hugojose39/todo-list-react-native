@@ -53,14 +53,21 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: 36,
     },
+    listEmptyIcon: {
+        color: '#808080',
+        fontSize: 60,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        marginBottom: 10,
+    },
     listEmptyTitle: {
-        color: '#FFF',
+        color: '#808080',
         fontSize: 14,
         textAlign: 'center',
         fontWeight: 'bold',
     },
     listEmptySubTitle: {
-        color: '#FFF',
+        color: '#808080',
         fontSize: 14,
         textAlign: 'center',
     },
