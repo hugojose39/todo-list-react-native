@@ -92,6 +92,6 @@ export const styles = StyleSheet.create({
         color: '#5E60CE',
         fontSize: 16,
         fontWeight: 'bold',
-        marginLeft: 200,
+        marginLeft: 208,
     },
 });
