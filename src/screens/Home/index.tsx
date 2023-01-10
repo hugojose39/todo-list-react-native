@@ -63,11 +63,11 @@ export function Home(): JSX.Element {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.todo}>
+            <View style={styles.formTodo}>
                 <Icon style={styles.rocket} name="rocket" />
                 <Text style={styles.todoBaseText}>to</Text>
                 <Text style={styles.todoInnerText}>do</Text>
-            </Text>
+            </View>
             <View style={styles.form}>
                 <TextInput
                     style={styles.input}

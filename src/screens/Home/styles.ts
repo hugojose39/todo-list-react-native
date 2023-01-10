@@ -6,11 +6,13 @@ export const styles = StyleSheet.create({
         backgroundColor: '#000',
         padding: 24,
     },
-    todo: {
-        fontSize: 40,
-        fontWeight: 'bold',
+    formTodo: {
+        flexDirection: 'row',
+        backgroundColor: '#000',
+        width: '100%',
         marginTop: 48,
-        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     rocket: {
         color: '#1E6F9F',
@@ -18,9 +20,13 @@ export const styles = StyleSheet.create({
     },
     todoBaseText: {
         color: '#5E60CE',
+        fontWeight: 'bold',
+        fontSize: 40,
     },
     todoInnerText: {
         color: '#1E6F9F',
+        fontSize: 40,
+        fontWeight: 'bold',
     },
     eventDate: {
         color: '#6B6B6B',
