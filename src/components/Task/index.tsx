@@ -1,12 +1,12 @@
-import { View, Text, TouchableOpacity } from 'react-native'
 import { styles } from './styles'
-import React, { useState } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import React, { useState } from 'react';
 
 type Props = {
     description: string;
-    onRemove: () => void;
-    onCheckTask: () => void;
+    onRemove: (estado: boolean) => void;
+    onCheckTask: (estado: boolean) => void;
 }
 
 export function Task({ description, onRemove, onCheckTask }: Props) {
@@ -15,6 +15,8 @@ export function Task({ description, onRemove, onCheckTask }: Props) {
 
     const checkTask = () => {
         setEstado(!estado);
+
+        onCheckTask(!estado);
     };
 
     return (
@@ -31,7 +33,7 @@ export function Task({ description, onRemove, onCheckTask }: Props) {
             </Text>
             <TouchableOpacity
                 style={styles.button}
-                onPress={onRemove}>
+                onPress={() => onRemove(estado)}>
                 <Icon style={styles.buttonText} name="trash-can-outline" />
             </TouchableOpacity>
         </View>

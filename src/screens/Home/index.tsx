@@ -1,22 +1,22 @@
 import { styles } from './styles';
 import { Task } from '../../components/Task';
 import { Text, View, TextInput, TouchableOpacity, FlatList, Alert } from 'react-native';
-import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import React, { useState } from 'react';
 
 export function Home(): JSX.Element {
     const [tasks, setTasks] = useState<string[]>([]);
+    const [completedTaks, setCompletedTask] = useState(0);
     const [taskDescription, setTaskName] = useState('');
     const [countCreated, setCountCreated] = useState(0);
-    const [countCompleted, setCountCompleted] = useState(0);
 
-    function onPressCheck() {
-        setCountCompleted(countCompleted + 1)
-    }
-
-    function onPressRemove(description: string) {
-        setCountCreated(countCreated - 1),
+    function onPressRemove(description: string, checked: boolean) {
+        setCountCreated(countCreated - 1);
         setTasks(prevState => prevState.filter(task => task !== description));
+
+        if (checked) {
+            setCompletedTask(completedTaks - 1);
+        }
     }
 
     function handleTaskAdd() {
@@ -24,7 +24,7 @@ export function Home(): JSX.Element {
             return Alert.alert('Tarefa já existe', 'Já existe uma tarefa na lista com essa descrição!')
         }
 
-        if (! taskDescription) {
+        if (!taskDescription) {
             return Alert.alert('Tarefa inválida!')
         }
 
@@ -33,26 +33,20 @@ export function Home(): JSX.Element {
         setTaskName('');
     }
 
-    function handleTaskCheck(description: string) {
-        Alert.alert('Finalizar tarefa', `Deseja finaliza a tarefa ${description} ?`, [
-            {
-                text: 'Sim',
-
-                onPress: () => onPressCheck(),
-            },
-            {
-                text: 'Não',
-                style: 'cancel',
-            }
-        ])
+    function handleTaskCheck(checked: boolean) {
+        if (checked) {
+            setCompletedTask(completedTaks + 1);
+        } else {
+            setCompletedTask(completedTaks - 1);
+        }
     }
 
-    function handleTaskRemove(description: string) {
+    function handleTaskRemove(description: string, checked: boolean) {
         Alert.alert('Remover', `Remover a tarefa ${description} ?`, [
             {
                 text: 'Sim',
 
-                onPress: () => onPressRemove(description),
+                onPress: () => onPressRemove(description, checked),
             },
             {
                 text: 'Não',
@@ -88,7 +82,7 @@ export function Home(): JSX.Element {
                     Criadas: {countCreated}
                 </Text>
                 <Text style={styles.completed}>
-                    Concluídas: {countCompleted}
+                    Concluídas: {completedTaks}
                 </Text>
             </View>
 
@@ -99,8 +93,8 @@ export function Home(): JSX.Element {
                     <Task
                         key={item}
                         description={item}
-                        onRemove={() => handleTaskRemove(item)}
-                        onCheckTask={() => handleTaskCheck(item)}
+                        onRemove={(cheked) => handleTaskRemove(item, cheked)}
+                        onCheckTask={(checked) => handleTaskCheck(checked)}
                     />
                 )}
                 showsVerticalScrollIndicator={false}
