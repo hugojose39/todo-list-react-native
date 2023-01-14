@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
         fontSize: 24,
     },
     buttonNotTaskDone: {
-        color: '#1E6F9F',
+        color: '#4EA8DE',
         fontSize: 24,
     },
 });

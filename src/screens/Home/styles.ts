@@ -15,16 +15,16 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     rocket: {
-        color: '#1E6F9F',
+        color: '#4EA8DE',
         fontSize: 40,
     },
     todoBaseText: {
-        color: '#5E60CE',
+        color: '#4EA8DE',
         fontWeight: 'bold',
         fontSize: 40,
     },
     todoInnerText: {
-        color: '#1E6F9F',
+        color: '#5E60CE',
         fontSize: 40,
         fontWeight: 'bold',
     },
@@ -86,7 +86,7 @@ export const styles = StyleSheet.create({
         marginTop: 40,
     },
     created: {
-        color: '#1E6F9F',
+        color: '#4EA8DE',
         fontSize: 16,
         fontWeight: 'bold',
     },
