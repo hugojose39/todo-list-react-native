@@ -79,6 +79,8 @@ export const styles = StyleSheet.create({
     },
     formCreatedCompleted: {
         width: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         flexDirection: 'row',
         marginBottom: 42,
         marginTop: 40,
@@ -92,6 +94,5 @@ export const styles = StyleSheet.create({
         color: '#5E60CE',
         fontSize: 16,
         fontWeight: 'bold',
-        marginLeft: 208,
     },
 });
